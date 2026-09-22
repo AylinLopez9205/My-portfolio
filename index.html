@@ -128,8 +128,8 @@
             color: var(--text-main);
         }
 
-        ul {
-            list-style: none;
+        p:last-child {
+            margin-bottom: 0;
         }
 
         .skills-grid, .education-list {
@@ -154,44 +154,6 @@
             font-size: 0.8rem;
             text-transform: uppercase;
             letter-spacing: 0.5px;
-        }
-
-        .interactive-box {
-            background: rgba(104, 221, 189, 0.04);
-            border: 1px dashed var(--accent-color);
-            border-radius: 8px;
-            padding: 16px;
-            margin-top: 15px;
-            text-align: center;
-        }
-
-        .btn {
-            background-color: var(--accent-color);
-            color: #0b0f12;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 6px;
-            font-weight: 600;
-            font-size: 0.9rem;
-            cursor: pointer;
-            transition: opacity 0.2s ease, transform 0.1s ease;
-            margin-top: 10px;
-        }
-
-        .btn:hover {
-            opacity: 0.9;
-        }
-
-        .btn:active {
-            transform: scale(0.98);
-        }
-
-        #quote-display {
-            font-style: italic;
-            color: var(--text-main);
-            min-height: 24px;
-            margin-top: 8px;
-            font-size: 0.95rem;
         }
 
         footer {
@@ -222,9 +184,9 @@
                     <span class="card-number">01</span>
                     <h2>About Me</h2>
                 </div>
-                <p>Hello! My name is <strong>Aylin López</strong>. I am currently studying to become a Programming Technician.</p>
-                <p>Before starting this journey, I explored humanities, such as Literature and Therapeutic Companion. However, I realized that my true calling lay elsewhere. When I began learning programming, I discovered a genuine passion for logic and problem-solving.</p>
-                <p>My primary goal is <strong>video game development</strong>, though I am also enthusiastic about working on broad software projects across various industries. I am dedicated to giving my best effort, continuously improving my technical capabilities, and excelling as a developer.</p>
+                <p>Hello! My name is <strong>Aylin López</strong>. I am studying to become a Programming Technician.</p>
+                <p>Before starting this career, I tried studying humanities, like Literature and Therapeutic Companion, but I felt that it was not for me. When I started learning programming, I realized that I really loved it.</p>
+                <p>My main passion is <strong>video game development</strong>, but I am open and interested in working on all kinds of software projects, even in other fields like chemical companies. I want to give my best to become the best version of myself and excel in my programming skills.</p>
             </section>
 
             <!-- 02. EDUCATION -->
@@ -233,19 +195,16 @@
                     <span class="card-number">02</span>
                     <h2>Education</h2>
                 </div>
-                <p><strong>Programming Technician Degree</strong> — Currently Enrolled</p>
+                <p><strong>Programming Technician Student</strong></p>
+                <p><strong>What I am learning:</strong></p>
                 <div class="education-list">
                     <div class="skill-item">
                         <strong>Core Focus</strong>
-                        Programming Fundamentals & OOP
-                    </div>
-                    <div class="skill-item">
-                        <strong>Data</strong>
-                        Databases
+                        Programming fundamentals & Object-Oriented Programming (OOP)
                     </div>
                     <div class="skill-item">
                         <strong>Languages</strong>
-                        Technical English
+                        English
                     </div>
                 </div>
             </section>
@@ -254,7 +213,7 @@
             <section class="card">
                 <div class="card-header">
                     <span class="card-number">03</span>
-                    <h2>Skills & Tools</h2>
+                    <h2>Skills</h2>
                 </div>
                 <div class="skills-grid">
                     <div class="skill-item">
@@ -262,16 +221,12 @@
                         C#, Python
                     </div>
                     <div class="skill-item">
-                        <strong>Environment</strong>
+                        <strong>Tools</strong>
                         Visual Studio Code
                     </div>
                     <div class="skill-item">
-                        <strong>Database</strong>
-                        SQL Fundamentals
-                    </div>
-                    <div class="skill-item">
                         <strong>Soft Skills</strong>
-                        Logical Thinking, Problem Solving, Creativity
+                        Logical thinking, problem solving
                     </div>
                 </div>
             </section>
@@ -280,10 +235,9 @@
             <section class="card">
                 <div class="card-header">
                     <span class="card-number">04</span>
-                    <h2>Projects & Coursework</h2>
+                    <h2>Projects</h2>
                 </div>
-                <p><strong>Programming Exercises (Python & C#):</strong> Developed solutions focused on algorithmic logic, custom functions, OOP principles, and data validation.</p>
-                <p><strong>Databases:</strong> Structured relational database exercises and queries.</p>
+                <p><strong>Programming Exercises (Python & C#):</strong> Logic problems, functions, algorithms, classes, validation, and Object-Oriented Programming (OOP).</p>
             </section>
 
             <!-- 05. GOALS & INTERESTS -->
@@ -292,38 +246,17 @@
                     <span class="card-number">05</span>
                     <h2>Goals & Interests</h2>
                 </div>
-                <p><strong>Primary Interest:</strong> Video game development.</p>
-                <p><strong>Short-Term Goal:</strong> Strengthen programming logic and build more standalone projects.</p>
-                <p><strong>Long-Term Goal:</strong> Build a career as a software developer, participate in game creation, and steadily expand my skills in the tech industry.</p>
-                
-                <div class="interactive-box">
-                    <p style="margin:0; color: var(--text-main); font-size: 0.9rem;">Click to reveal my programming philosophy:</p>
-                    <button class="btn" onclick="showQuote()">Generate Insight</button>
-                    <div id="quote-display"></div>
-                </div>
+                <p><strong>Interests:</strong> Video game development.</p>
+                <p><strong>Short-term goal:</strong> Improve my programming logic and build more projects.</p>
+                <p><strong>Long-term goal:</strong> Work as a software developer, create games, and keep growing in the tech industry.</p>
             </section>
         </main>
 
         <footer>
-            <p>&copy; 2026 Aylin López — Built with HTML, CSS & JavaScript</p>
+            <p>&copy; 2026 Aylin López — Built with HTML & CSS</p>
         </footer>
 
     </div>
-
-    <script>
-        const quotes = [
-            '"First, solve the problem. Then, write the code."',
-            '"Clean code always looks like it was written by someone who cares."',
-            '"Simplicity is prerequisite for reliability."',
-            '"Continuous improvement is better than delayed perfection."'
-        ];
-
-        function showQuote() {
-            const display = document.getElementById('quote-display');
-            const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
-            display.innerText = randomQuote;
-        }
-    </script>
 
 </body>
 </html>

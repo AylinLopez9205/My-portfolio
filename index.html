@@ -3,100 +3,327 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aylin López - Programming Portfolio</title>
+    <title>Aylin López - Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            background-color: #12181b;
-            color: #f3f4f6;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
+        :root {
+            --bg-color: #0b0f12;
+            --card-bg: #131a20;
+            --accent-color: #68ddbd;
+            --accent-glow: rgba(104, 221, 189, 0.15);
+            --text-main: #e2e8f0;
+            --text-muted: #8a99ad;
+            --border-color: #202d38;
         }
-        h1 { 
-            color: #68ddbd; 
-            border-bottom: 2px solid #68ddbd; 
-            padding-bottom: 8px; 
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 40px 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        header {
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .terminal-header {
+            font-family: 'Fira Code', monospace;
+            font-size: 0.85rem;
+            color: var(--accent-color);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .pulse-dot {
+            width: 8px;
+            height: 8px;
+            background-color: var(--accent-color);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--accent-color);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.4; transform: scale(0.8); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: #ffffff;
+            letter-spacing: -1px;
             margin-bottom: 5px;
         }
-        .subtitle {
-            color: #a0aec0;
-            font-weight: bold;
-            font-size: 1.1em;
-            margin-bottom: 25px;
+
+        .title-tag {
+            font-size: 1.2rem;
+            color: var(--accent-color);
+            font-weight: 600;
+            margin-bottom: 15px;
         }
-        h2 { 
-            color: #68ddbd; 
-            margin-top: 0;
-            font-size: 1.3em;
-        }
-        ul { 
-            list-style-type: square; 
-            padding-left: 20px;
-        }
-        li {
-            margin-bottom: 6px;
-        }
+
         .card {
-            background-color: #1a232a;
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 28px;
+            margin-bottom: 25px;
+            transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .card:hover {
+            border-color: var(--accent-color);
+            box-shadow: 0 6px 20px var(--accent-glow);
+            transform: translateY(-2px);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 18px;
+        }
+
+        .card-number {
+            font-family: 'Fira Code', monospace;
+            color: var(--accent-color);
+            font-size: 0.9rem;
+            background: rgba(104, 221, 189, 0.1);
+            padding: 3px 8px;
+            border-radius: 6px;
+        }
+
+        h2 {
+            font-size: 1.4rem;
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        p {
+            color: var(--text-muted);
+            margin-bottom: 12px;
+            font-size: 0.98rem;
+        }
+
+        p strong {
+            color: var(--text-main);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .skills-grid, .education-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 12px;
+            margin-top: 15px;
+        }
+
+        .skill-item {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-color);
+            padding: 12px 16px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+        }
+
+        .skill-item strong {
+            color: var(--accent-color);
+            display: block;
+            margin-bottom: 4px;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .interactive-box {
+            background: rgba(104, 221, 189, 0.04);
+            border: 1px dashed var(--accent-color);
+            border-radius: 8px;
+            padding: 16px;
+            margin-top: 15px;
+            text-align: center;
+        }
+
+        .btn {
+            background-color: var(--accent-color);
+            color: #0b0f12;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: opacity 0.2s ease, transform 0.1s ease;
+            margin-top: 10px;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+        }
+
+        .btn:active {
+            transform: scale(0.98);
+        }
+
+        #quote-display {
+            font-style: italic;
+            color: var(--text-main);
+            min-height: 24px;
+            margin-top: 8px;
+            font-size: 0.95rem;
+        }
+
+        footer {
+            text-align: center;
             padding: 20px;
-            border-radius: 10px;
-            margin-bottom: 20px;
-            border: 1px solid #2a3744;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            font-family: 'Fira Code', monospace;
         }
     </style>
 </head>
 <body>
 
-    <h1>Aylin López</h1>
-    <div class="subtitle">Programming Technician Student</div>
+    <div class="container">
+        
+        <header>
+            <div class="terminal-header">
+                <span class="pulse-dot"></span> system.status: online
+            </div>
+            <h1>Aylin López</h1>
+            <div class="title-tag">Programming Technician Student</div>
+        </header>
 
-    <div class="card">
-        <h2>01. About Me</h2>
-        <p>Hello! My name is Aylin López. I am studying to become a Programming Technician.</p>
-        <p>Before starting this career, I tried studying humanities, like Literature and Therapeutic Companion, but I felt that it was not for me. When I started learning programming, I realized that I really loved it.</p>
-        <p>My main passion is video game development, but I am open and interested in working on all kinds of software projects, even in other fields like chemical companies. I want to give my best to become the best version of myself and excel in my programming skills.</p>
+        <main>
+            <!-- 01. ABOUT ME -->
+            <section class="card">
+                <div class="card-header">
+                    <span class="card-number">01</span>
+                    <h2>About Me</h2>
+                </div>
+                <p>Hello! My name is <strong>Aylin López</strong>. I am currently studying to become a Programming Technician.</p>
+                <p>Before starting this journey, I explored humanities, such as Literature and Therapeutic Companion. However, I realized that my true calling lay elsewhere. When I began learning programming, I discovered a genuine passion for logic and problem-solving.</p>
+                <p>My primary goal is <strong>video game development</strong>, though I am also enthusiastic about working on broad software projects across various industries. I am dedicated to giving my best effort, continuously improving my technical capabilities, and excelling as a developer.</p>
+            </section>
+
+            <!-- 02. EDUCATION -->
+            <section class="card">
+                <div class="card-header">
+                    <span class="card-number">02</span>
+                    <h2>Education</h2>
+                </div>
+                <p><strong>Programming Technician Degree</strong> — Currently Enrolled</p>
+                <div class="education-list">
+                    <div class="skill-item">
+                        <strong>Core Focus</strong>
+                        Programming Fundamentals & OOP
+                    </div>
+                    <div class="skill-item">
+                        <strong>Data</strong>
+                        Databases
+                    </div>
+                    <div class="skill-item">
+                        <strong>Languages</strong>
+                        Technical English
+                    </div>
+                </div>
+            </section>
+
+            <!-- 03. SKILLS -->
+            <section class="card">
+                <div class="card-header">
+                    <span class="card-number">03</span>
+                    <h2>Skills & Tools</h2>
+                </div>
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <strong>Languages</strong>
+                        C#, Python
+                    </div>
+                    <div class="skill-item">
+                        <strong>Environment</strong>
+                        Visual Studio Code
+                    </div>
+                    <div class="skill-item">
+                        <strong>Database</strong>
+                        SQL Fundamentals
+                    </div>
+                    <div class="skill-item">
+                        <strong>Soft Skills</strong>
+                        Logical Thinking, Problem Solving, Creativity
+                    </div>
+                </div>
+            </section>
+
+            <!-- 04. PROJECTS -->
+            <section class="card">
+                <div class="card-header">
+                    <span class="card-number">04</span>
+                    <h2>Projects & Coursework</h2>
+                </div>
+                <p><strong>Programming Exercises (Python & C#):</strong> Developed solutions focused on algorithmic logic, custom functions, OOP principles, and data validation.</p>
+                <p><strong>Databases:</strong> Structured relational database exercises and queries.</p>
+            </section>
+
+            <!-- 05. GOALS & INTERESTS -->
+            <section class="card">
+                <div class="card-header">
+                    <span class="card-number">05</span>
+                    <h2>Goals & Interests</h2>
+                </div>
+                <p><strong>Primary Interest:</strong> Video game development.</p>
+                <p><strong>Short-Term Goal:</strong> Strengthen programming logic and build more standalone projects.</p>
+                <p><strong>Long-Term Goal:</strong> Build a career as a software developer, participate in game creation, and steadily expand my skills in the tech industry.</p>
+                
+                <div class="interactive-box">
+                    <p style="margin:0; color: var(--text-main); font-size: 0.9rem;">Click to reveal my programming philosophy:</p>
+                    <button class="btn" onclick="showQuote()">Generate Insight</button>
+                    <div id="quote-display"></div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 Aylin López — Built with HTML, CSS & JavaScript</p>
+        </footer>
+
     </div>
 
-    <div class="card">
-        <h2>02. My Education</h2>
-        <p><strong>Programming Technician Student</strong></p>
-        <p><strong>What I am learning:</strong></p>
-        <ul>
-            <li>Programming fundamentals</li>
-            <li>Object-Oriented Programming (OOP)</li>
-            <li>Databases</li>
-            <li>English</li>
-        </ul>
-    </div>
+    <script>
+        const quotes = [
+            '"First, solve the problem. Then, write the code."',
+            '"Clean code always looks like it was written by someone who cares."',
+            '"Simplicity is prerequisite for reliability."',
+            '"Continuous improvement is better than delayed perfection."'
+        ];
 
-    <div class="card">
-        <h2>03. My Skills</h2>
-        <ul>
-            <li><strong>Languages:</strong> C#, Python</li>
-            <li><strong>Tools:</strong> Visual Studio Code</li>
-            <li><strong>Soft Skills:</strong> Logical thinking, problem solving, creativity</li>
-        </ul>
-    </div>
-
-    <div class="card">
-        <h2>04. My Projects</h2>
-        <ul>
-            <li><strong>Programming Exercises (Python & C#):</strong> Logic problems, functions, algorithms, classes, validation, and Object-Oriented Programming (OOP)[cite: 1].</li>
-            <li><strong>Databases:</strong> Relational database exercises.</li>
-        </ul>
-    </div>
-
-    <div class="card">
-        <h2>05. My Goals & Interests</h2>
-        <ul>
-            <li><strong>Interests:</strong> Video game development.</li>
-            <li><strong>Short-term goal:</strong> Improve my programming logic and build more projects[cite: 1].</li>
-            <li><strong>Long-term goal:</strong> Work as a software developer, create games, and keep growing in the tech industry.</li>
-        </ul>
-    </div>
+        function showQuote() {
+            const display = document.getElementById('quote-display');
+            const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+            display.innerText = randomQuote;
+        }
+    </script>
 
 </body>
 </html>
